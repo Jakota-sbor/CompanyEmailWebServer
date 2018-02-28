@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="EmailsDB" Class="LinqDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\EmailsDB.mdf;Integrated Security=True;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="EmailsDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Emails" Member="Emails">
+    <Type Name="Emails">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EmailTime" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EmailTo" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailFrom" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailTopic" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailText" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.DeleteEmail" Method="DeleteEmail">
+    <Parameter Name="id" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.InsertEmail" Method="InsertEmail">
+    <Parameter Name="emailto" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="emailfrom" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="emailtopic" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="emailtext" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.EditEmail" Method="EditEmail">
+    <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EmailTime" Parameter="emailTime" Type="System.DateTime" DbType="SmallDateTime" />
+    <Parameter Name="EmailTo" Parameter="emailTo" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="EmailFrom" Parameter="emailFrom" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="EmailTopic" Parameter="emailTopic" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="EmailText" Parameter="emailText" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

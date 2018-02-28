@@ -1,0 +1,64 @@
+﻿@model CompanyWebServer.Models.Emails
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удалить</h2>
+
+<h3>Вы уверены что хотите удалить e-mail?</h3>
+<div>
+    <h4>E-mail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailTo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailTo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailFrom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailFrom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailTopic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailTopic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailText)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Index")
+        </div>
+    }
+</div>
